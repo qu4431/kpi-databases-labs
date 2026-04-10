@@ -1,5 +1,5 @@
 ## Creating tables
-```
+```sql
 CREATE TABLE Users (
 	user_id SERIAL PRIMARY KEY,
 	login VARCHAR(64) NOT NULL CHECK (login ~ '^[a-zA-Z0-9]+$'),
