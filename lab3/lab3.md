@@ -11,6 +11,7 @@
 ```sql
 SELECT login, "password" FROM Users WHERE reg_date > '2026-1-1';
 ```
+> Очікування: `login234`, `login2774` та їхні паролі відповідно.
 ### Результат:
 ![alt](img/select_logpass_date.jpg)
 
@@ -18,6 +19,7 @@ SELECT login, "password" FROM Users WHERE reg_date > '2026-1-1';
 ```sql
 SELECT code_name FROM Currencies WHERE LENGTH(currency_name) > 7;
 ```
+> Очікування: долар, фунт та франк.
 ### Результат:
 ![alt](img/select_curr_length.jpg)
 
@@ -25,6 +27,7 @@ SELECT code_name FROM Currencies WHERE LENGTH(currency_name) > 7;
 ```sql
 SELECT category_name FROM Categories WHERE category_type = 'Spending';
 ```
+> Очікування: магазини та їжа.
 ### Результат:
 ![alt](img/select_spending.jpg)
 
@@ -32,6 +35,7 @@ SELECT category_name FROM Categories WHERE category_type = 'Spending';
 ```sql
 SELECT subcategory_name FROM Subcategories WHERE category_id = 1;
 ```
+> Очікування: Супермаркет, продуктовий та підписка.
 ### Результат:
 ![alt](img/select_subshops.jpg)
 
@@ -39,6 +43,7 @@ SELECT subcategory_name FROM Subcategories WHERE category_id = 1;
 ```sql
 SELECT user_id, email, username FROM Profiles WHERE phone_number % 3 = 0 AND phone_number % 5 = 0 AND main_currency_id != 4;
 ```
+> Очікування: профіль з ідентифікатором 2.
 ### Результат:
 ![alt](img/select_profiles.jpg)
 
@@ -46,6 +51,7 @@ SELECT user_id, email, username FROM Profiles WHERE phone_number % 3 = 0 AND pho
 ```sql
 SELECT account_id, account_name FROM Accounts WHERE balance >= 2000;
 ```
+> Очікування: id 1, 4, 5, 6.
 ### Результат:
 ![alt](img/select_balance.jpg)
 
@@ -53,6 +59,7 @@ SELECT account_id, account_name FROM Accounts WHERE balance >= 2000;
 ```sql
 SELECT amount, transfer_date FROM Transfers WHERE fee > 0;
 ```
+> Очікування: на суму 100 та 1.
 ### Результат:
 ![alt](img/select_fee.jpg)
 
@@ -60,6 +67,7 @@ SELECT amount, transfer_date FROM Transfers WHERE fee > 0;
 ```sql
 SELECT amount FROM RecurringPayments WHERE "interval" < '1 month';
 ```
+> Очікування: 10 та 9.99.
 ### Результат:
 ![alt](img/select_interval.jpg)
 
@@ -67,6 +75,7 @@ SELECT amount FROM RecurringPayments WHERE "interval" < '1 month';
 ```sql
 SELECT "date" FROM Transactions WHERE description != '';
 ```
+> Очікування: 13 та 15 квітня 2026.
 ### Результат:
 ![alt](img/select_descr.jpg)
 
@@ -80,6 +89,7 @@ VALUES (6, 'newLoginLab3', 'passwordnewinsertion', NOW());
 
 SELECT * FROM Users
 ```
+> Очікування: додання нового користувача.
 ### Результат:
 ![alt](img/insert1.jpg)
 
@@ -90,6 +100,7 @@ VALUES (6, 'BTC', 'Bitcoin');
 
 SELECT * FROM Currencies
 ```
+> Очікування: додання нової валюти.
 ### Результат:
 ![alt](img/insert2.jpg)
 
@@ -100,6 +111,7 @@ VALUES (4, 'example category', 'Income');
 
 SELECT * FROM Categories
 ```
+> Очікування: додання нової категорії.
 ### Результат:
 ![alt](img/insert3.jpg)
 
@@ -110,6 +122,7 @@ VALUES (8,2,'example subcategory');
 
 SELECT * FROM Subcategories
 ```
+> Очікування: додання нової підкатегорії.
 ### Результат:
 ![alt](img/insert4.jpg)
 
@@ -120,6 +133,7 @@ VALUES (7,435454446,'example@exampleexample.com',1,'usernameforexample',1);
 
 SELECT * FROM Profiles
 ```
+> Очікування: додання нового профілю.
 ### Результат:
 ![alt](img/insert5.jpg)
 
@@ -130,6 +144,7 @@ VALUES (7,'example account', 1, 1, 9999.97);
 
 SELECT * FROM Accounts
 ```
+> Очікування: додання нового рахунку.
 ### Результат:
 ![alt](img/insert6.jpg)
 
@@ -140,6 +155,7 @@ VALUES (4,1,2,123123.12,123,NOW(),'example');
 
 SELECT * FROM Transfers
 ```
+> Очікування: додання нового переказу.
 ### Результат:
 ![alt](img/insert7.jpg)
 
@@ -150,6 +166,7 @@ VALUES (4, 9992.11, 2, 1, '1 year', '2026-6-6');
 
 SELECT * FROM RecurringPayments
 ```
+> Очікування: додання нового регулярного платежу.
 ### Результат:
 ![alt](img/insert8.jpg)
 
@@ -160,6 +177,7 @@ VALUES (4,1,2,2093,NOW(),'example');
 
 SELECT * FROM Transactions
 ```
+> Очікування: додання нової транзакції.
 ### Результат:
 ![alt](img/insert9.jpg)
 
@@ -174,6 +192,7 @@ WHERE user_id = 2;
 
 SELECT * FROM Users;
 ```
+> Очікування: зміна паролю користувача на abc123.
 ### Результат:
 ![alt](img/update1.jpg)
 
@@ -185,6 +204,7 @@ WHERE currency_id = 6;
 
 SELECT * FROM Currencies;
 ```
+> Очікування: зміна BTC на example.
 ### Результат:
 ![alt](img/update2.jpg)
 
@@ -196,6 +216,7 @@ WHERE category_id = 4;
 
 SELECT * FROM Categories;
 ```
+> Очікування: Зміна типу категорії з прибутку на витрату.
 ### Результат:
 ![alt](img/update3.jpg)
 
@@ -207,6 +228,7 @@ WHERE category_id = 2;
 
 SELECT * FROM Subcategories;
 ```
+> Очікування: зміна трьох підкатегорій.
 ### Результат:
 ![alt](img/update4.jpg)
 
@@ -218,6 +240,7 @@ WHERE profile_id = 4;
 
 SELECT * FROM Profiles;
 ```
+> Очікування: зміна пошти.
 ### Результат:
 ![alt](img/update5.jpg)
 
@@ -229,6 +252,7 @@ WHERE account_id = 5;
 
 SELECT * FROM Accounts;
 ```
+> Очікування: зміна балансу рахунку на 0.
 ### Результат:
 ![alt](img/update6.jpg)
 
@@ -240,6 +264,7 @@ WHERE transfer_id = 2;
 
 SELECT * FROM Transfers;
 ```
+> Очікування: зміна коментаря переказу.
 ### Результат:
 ![alt](img/update7.jpg)
 
@@ -251,6 +276,7 @@ WHERE payment_id = 2;
 
 SELECT * FROM RecurringPayments;
 ```
+> Очікування: зміна інтервалу платежу до 10 років.
 ### Результат:
 ![alt](img/update8.jpg)
 
@@ -262,6 +288,7 @@ WHERE transaction_id = 1;
 
 SELECT * FROM Transactions;
 ```
+> Очікування: зміна опису транзакції.
 ### Результат:
 ![alt](img/update9.jpg)
 
@@ -275,6 +302,7 @@ WHERE user_id = 6;
 
 SELECT * FROM Users;
 ```
+> Очікування: видалення користувача, що було додано у попередніх завданнях.
 ### Результат:
 ![alt](img/delete1.jpg)
 
@@ -285,6 +313,7 @@ WHERE currency_id = 6;
 
 SELECT * FROM Currencies;
 ```
+> Очікування: видалення валюти, що було додано у попередніх завданнях.
 ### Результат:
 ![alt](img/delete2.jpg)
 
@@ -295,6 +324,7 @@ WHERE category_id = 4;
 
 SELECT * FROM Categories;
 ```
+> Очікування: видалення категорії, що було додано у попередніх завданнях.
 ### Результат:
 ![alt](img/delete3.jpg)
 
@@ -305,6 +335,7 @@ WHERE subcategory_id != 4 AND subcategory_id != 3 AND subcategory_name = 'update
 
 SELECT * FROM Subcategories;
 ```
+> Очікування: видалення відкатегорії, у якої ідентифікатор не 3 і не 4, але назва updateexample *(що було додано у попередніх завданнях)*.
 ### Результат:
 ![alt](img/delete4.jpg)
 
@@ -315,6 +346,7 @@ WHERE username = 'usernameforexample';
 
 SELECT * FROM Profiles;
 ```
+> Очікування: видалення профілю, з нікнеймом usernameforexample *(що було додано у попередніх завданнях)*.
 ### Результат:
 ![alt](img/delete5.jpg)
 
@@ -325,6 +357,7 @@ WHERE account_id = 7;
 
 SELECT * FROM Accounts;
 ```
+> Очікування: видалення рахунку, що було додано у попередніх завданнях.
 ### Результат:
 ![alt](img/delete6.jpg)
 
@@ -335,6 +368,7 @@ WHERE fee = 123;
 
 SELECT * FROM Transfers;
 ```
+> Очікування: видалення переказу, з якого стягнули уомісію у розмірі 123 *(що було додано у попередніх завданнях)*.
 ### Результат:
 ![alt](img/delete7.jpg)
 
@@ -345,6 +379,7 @@ WHERE "interval" = '10 year';
 
 SELECT * FROM RecurringPayments;
 ```
+> Очікування: видалення регулярного платежу, з інтервалом 10 років *(що було додано у попередніх завданнях)*.
 ### Результат:
 ![alt](img/delete8.jpg)
 
@@ -355,15 +390,11 @@ WHERE transaction_id = 4;
 
 SELECT * FROM Transactions;
 ```
+> Очікування: видалення транзакції, що було додано у попередніх завданнях.
 ### Результат:
 ![alt](img/delete9.jpg)
 
+***
 
-
-
-### 
-```sql
-
-```
-### Результат:
-![alt](img/.jpg)
+## 5. Вивчити основні операції маніпулювання даними (DML) у PostgreSQL та спостерігати за їхнім впливом.
+> У результаті лабораторної роботи були вивчені основні операції маніпулювання даними, а саме `SELECT`, `INSERT`, `UPDATE`/`SET` та `DELETE`. Визначили їх вплив на базу даних.
