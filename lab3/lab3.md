@@ -165,6 +165,109 @@ SELECT * FROM Transactions
 
 ***
 
+## 3. Практикувати використання оператора `UPDATE` для зміни існуючих рядків (використовуючи `SET` та `WHERE`).
+### Зміна паролю користувачу.
+```sql
+UPDATE Users
+SET "password" = 'abc123'
+WHERE user_id = 2;
+
+SELECT * FROM Users;
+```
+### Результат:
+![alt](img/update1.jpg)
+
+### Зміна кодової назви валюти.
+```sql
+UPDATE Currencies
+SET code_name = 'example'
+WHERE currency_id = 6;
+
+SELECT * FROM Currencies;
+```
+### Результат:
+![alt](img/update2.jpg)
+
+### Зміна типу категорії.
+```sql
+UPDATE Categories
+SET category_type = 'Spending'
+WHERE category_id = 4;
+
+SELECT * FROM Categories;
+```
+### Результат:
+![alt](img/update3.jpg)
+
+### Зміна видів підкатегорії за категоріями.
+```sql
+UPDATE Subcategories
+SET subcategory_name = 'updateexample'
+WHERE category_id = 2;
+
+SELECT * FROM Subcategories;
+```
+### Результат:
+![alt](img/update4.jpg)
+
+### Зміна пошти профіля.
+```sql
+UPDATE Profiles
+SET email = 'updateexample@email.aaaa'
+WHERE profile_id = 4;
+
+SELECT * FROM Profiles;
+```
+### Результат:
+![alt](img/update5.jpg)
+
+### Зміна балансу рахунку.
+```sql
+UPDATE Accounts
+SET balance = 0
+WHERE account_id = 5;
+
+SELECT * FROM Accounts;
+```
+### Результат:
+![alt](img/update6.jpg)
+
+### Зміна коментаря переказу.
+```sql
+UPDATE Transfers
+SET transfer_comment = 'example1'
+WHERE transfer_id = 2;
+
+SELECT * FROM Transfers;
+```
+### Результат:
+![alt](img/update7.jpg)
+
+### Зміна інтервалу платежу.
+```sql
+UPDATE RecurringPayments
+SET "interval" = '10 years'
+WHERE payment_id = 2;
+
+SELECT * FROM RecurringPayments;
+```
+### Результат:
+![alt](img/update8.jpg)
+
+### Зміна опису транзакції.
+```sql
+UPDATE Transactions
+SET description = 'update example description'
+WHERE transaction_id = 1;
+
+SELECT * FROM Transactions;
+```
+### Результат:
+![alt](img/update9.jpg)
+
+***
+
+
 ### 
 ```sql
 
