@@ -77,6 +77,8 @@ CREATE TABLE Transactions (
 	description TEXT
 );
 ```
+> **_Опис стовпців та ключів:_**
+>
 > **Users**
 > 
 > - `user_id` - *SERIAL PRIMARY KEY,* серійний(тобто йде по порядку) первинний ключ для ідентифікатору користувача, не може не існувати.
@@ -147,7 +149,8 @@ CREATE TABLE Transactions (
 > - `date` - *TIMESTAMP,* дата + час транзакції у форматі `yyyy-mm-dd hh:mm` без урахування часового поясу, не може не існувати.
 > - `description` - *TEXT*, довгий текст опису/коментаря до транзакції.
 
-
+### Результат створення таблиць:
+![alt](img/create_table.jpg)
 
 
 
