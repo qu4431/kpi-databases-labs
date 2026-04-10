@@ -267,10 +267,103 @@ SELECT * FROM Transactions;
 
 ***
 
+## 4. Практикувати використання операторів `DELETE` для безпечного видалення рядків (за допомогою `WHERE`).
+### Видалення користувача.
+```sql
+DELETE FROM Users
+WHERE user_id = 6;
+
+SELECT * FROM Users;
+```
+### Результат:
+![alt](img/delete1.jpg)
+
+### Видалення валюти.
+```sql
+DELETE FROM Currencies
+WHERE currency_id = 6;
+
+SELECT * FROM Currencies;
+```
+### Результат:
+![alt](img/delete2.jpg)
+
+### Видалення категорії
+```sql
+DELETE FROM Categories
+WHERE category_id = 4;
+
+SELECT * FROM Categories;
+```
+### Результат:
+![alt](img/delete3.jpg)
+
+### Видалення підкатегорії.
+```sql
+DELETE FROM Subcategories
+WHERE subcategory_id != 4 AND subcategory_id != 3 AND subcategory_name = 'updateexample';
+
+SELECT * FROM Subcategories;
+```
+### Результат:
+![alt](img/delete4.jpg)
+
+### Видалення профілю.
+```sql
+DELETE FROM Profiles
+WHERE username = 'usernameforexample';
+
+SELECT * FROM Profiles;
+```
+### Результат:
+![alt](img/delete5.jpg)
+
+### Видалення рахунку.
+```sql
+DELETE FROM Accounts
+WHERE account_id = 7;
+
+SELECT * FROM Accounts;
+```
+### Результат:
+![alt](img/delete6.jpg)
+
+### Видалення переказу.
+```sql
+DELETE FROM Transfers
+WHERE fee = 123;
+
+SELECT * FROM Transfers;
+```
+### Результат:
+![alt](img/delete7.jpg)
+
+### Видалення регулярного платежу.
+```sql
+DELETE FROM RecurringPayments
+WHERE "interval" = '10 year';
+
+SELECT * FROM RecurringPayments;
+```
+### Результат:
+![alt](img/delete8.jpg)
+
+### Видалення транзакції.
+```sql
+DELETE FROM Transactions
+WHERE transaction_id = 4;
+
+SELECT * FROM Transactions;
+```
+### Результат:
+![alt](img/delete9.jpg)
+
+
+
 
 ### 
 ```sql
 
 ```
 ### Результат:
-![alt](img/)
+![alt](img/.jpg)
