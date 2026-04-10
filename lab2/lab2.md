@@ -150,7 +150,8 @@ CREATE TABLE Transactions (
 > - `description` - *TEXT*, довгий текст опису/коментаря до транзакції.
 
 ### Результат створення таблиць:
-![alt](img/create_table.jpg)
+1. ![alt](img/create_table.jpg)
+2. ![alt](img/created_tables.jpg)
 
 
 
