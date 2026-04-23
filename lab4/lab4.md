@@ -14,6 +14,7 @@
 SELECT profile_id, COUNT(account_id) AS total_accounts
 FROM accounts GROUP BY profile_id;
 ```
+> Запит показує кількість рахунків, тобто `COUNT(account_id)`, у ствопці з назвою `total_accounts`, тобто `AS total_accounts`, до кожного користувача за допомогою `GROUP BY profile_id`.
 ### Результат:
 ![alt](img/11.jpg)
 
@@ -22,6 +23,7 @@ FROM accounts GROUP BY profile_id;
 SELECT currency_id, SUM(balance) AS total_balance
 FROM accounts GROUP BY currency_id;
 ```
+> Запит показує суму усіх грошей, тобто `SUM(balance)`, у ствопці з назвою `total_balance`, тобто `AS total_balance`, до кожної валюти за допомогою `GROUP BY currency_id`.
 ### Результат:
 ![alt](img/12.jpg)
 
@@ -32,6 +34,7 @@ MAX(amount) AS max_transfer,
 ROUND(AVG(amount), 2) AS avg_transfer
 FROM transfers;
 ```
+> Запит показує мінімальну, максимальну та середню суму переказів, тобто `MIN(amount)`, `MAX(amount)` та `ROUND(AVG(amount), 2)`, у відповідних сповпцях `min_transfer`, `max_transfer` та `avg_transfer`.
 ### Результат:
 ![alt](img/13.jpg)
 
@@ -41,19 +44,21 @@ SELECT subcategory_id, SUM(amount) AS total_spent
 FROM transactions GROUP BY subcategory_id
 HAVING SUM(amount) > 100;
 ```
+> Запит показує суму витрат `SUM(amount) AS total_spent` по кожній підкатегорії, за доромогою `GROUP BY subcategory_id`, але якщо сума більше 100, тобто `HAVING SUM(amount) > 100`.
 ### Результат:
 ![alt](img/14.jpg)
 
 ***
 ## 3. Виконувати операції JOIN (принаймні INNER JOIN та LEFT JOIN), щоб об'єднати дані з кількох таблиць.
 > мінімум 3 запити, що використовують різні типи джоінів (INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN, CROSS JOIN)
-### Приклад 1 (Вивід офнормації про рахунки по даним профіля та валюти по даним рахунка):
+### Приклад 1 (Вивід іфнормації про рахунки по даним профіля та валюти по даним рахунка):
 ```sql
 SELECT p.username, a.account_name, c.code_name
 FROM profiles p
 INNER JOIN accounts a ON p.profile_id = a.profile_id
 INNER JOIN currencies c ON a.currency_id = c.currency_id;
 ```
+> Запит показує імʼя користувача, рахунок та його валюту. Вивід рахунку користувача відбуваєиться за допомогою `INNER JOIN accounts a ON p.profile_id = a.profile_id`, тобто виводяться рахунки, за умови, що ідентифікатор користувача у рахунку співрадає з ідентифікатором користувача профілю. Подібним чином виводиться і валюта рахунку - порівнюють ідентифікатори валюти у рахунку та у самої валюти (`INNER JOIN currencies c ON a.currency_id = c.currency_id`).
 ### Результат:
 ![alt](img/21.jpg)
 
@@ -63,6 +68,7 @@ SELECT c.category_name, c.category_type,s.subcategory_name
 FROM categories c
 LEFT JOIN subcategories s ON c.category_id = s.category_id;
 ```
+> Запит показує усі значення таблиці зліва, тобто усі категорії, та значення таблиці справа, що відповідають значення таблиці зліва, тобто вивід усіх категорій та їхнії підкатегорій, за умови, що категорія існує, а підкатегорія не була додана буде виведено значення `NULL`.
 ### Результат:
 ![alt](img/22.jpg)
 
@@ -72,6 +78,7 @@ SELECT c.currency_name, c.code_name, a.account_name
 FROM accounts a
 RIGHT JOIN currencies c ON a.currency_id = c.currency_id;
 ```
+> Запит показує подібно до попереднього прикладу, але з невеликими змінами, у даному випадку виводяться валюти та рахунки. `RIGHT JOIN` тепер виводить усі значення таблиці справа, тобто усі валюти, та рахунки, що відповідаються цим валютам, за умови, що валюта існує, а рахунку до неї немає буде виведено значення `NULL` (на скрині результату є приклад з GBP).
 ### Результат:
 ![alt](img/23.jpg)
 
