@@ -83,7 +83,7 @@ RIGHT JOIN currencies c ON a.currency_id = c.currency_id;
 ![alt](img/23.jpg)
 
 ***
-## Використання відзапитів.
+## Використання підзапитів.
 > мінімум 3 запити з використанням підзапитів (вибірка з підзапитом у SELECT, WHERE, або HAVING)
 ### Приклад 1 (Вивід усіх рахунків у яких баланс вище середнього):
 ```sql
@@ -91,6 +91,7 @@ SELECT account_name, balance
 FROM accounts
 WHERE balance > (SELECT AVG(balance) FROM accounts);
 ```
+> Запит показує усі рахунки, котрі мають баланс вище середнього, тобто `WHERE balance > (SELECT AVG(balance) FROM accounts)`.
 ### Результат:
 ![alt](img/31.jpg)
 
@@ -101,6 +102,7 @@ INNER JOIN accounts a ON pay.account_id = a.account_id
 WHERE a.profile_id = p.profile_id) AS scheduled_payments_count
 FROM profiles p;
 ```
+> Запит показує користувачів та кількість регулярних платежів. Для цього виводяться дані про користувача `p.username, p.email`, також до цього береться обрахунок кількості регулряних платежів `SELECT COUNT(*) FROM recurringpayments pay`, щоб їх порахувати, треба знати до якого користувача він належить, а для цього треба знати якому рахунку вони належать, тобто спочатку шукаємо до рахунку `INNER JOIN accounts a ON pay.account_id = a.account_id`, потім вже до якого користувача належить `WHERE a.profile_id = p.profile_id) AS scheduled_payments_count` і отримуємо результат.
 ### Результат:
 ![alt](img/32.jpg)
 
@@ -111,5 +113,6 @@ FROM transactions
 GROUP BY subcategory_id
 HAVING AVG(amount) > (SELECT AVG(amount) FROM transactions);
 ```
+> Запит показує підкатегорії, де середня сума її транзакцій більша за середню суму усіх транзакцій. Для цього рахується середня сума транзакцій `ROUND(AVG(amount), 2) AS avg_transaction_amount` по підкатегоріям `GROUP BY subcategory_id` та порівнюється із загальною середньою сумою транзакцій `HAVING AVG(amount) > (SELECT AVG(amount) FROM transactions)`.
 ### Результат:
 ![alt](img/33.jpg)
